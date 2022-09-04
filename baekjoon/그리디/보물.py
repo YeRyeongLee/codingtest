@@ -14,9 +14,9 @@ def solution(N, A, B):
     return answer
 
 def run():
-    input1 = "5"
-    input2 = "1 1 1 6 0"
-    input3 = "2 7 8 3 1"
+    input1 = input()
+    input2 = input()
+    input3 = input()
 
     N = int(input1)
     A = list(map(int, input2.split()))

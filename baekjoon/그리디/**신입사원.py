@@ -1,3 +1,6 @@
+# 시간초과 O(N)으로 만들것. 
+# 아마 sort가 O(NlogN)이라 걸리는 것 같음. 
+
 def solution(N, scores):
     answer = 0
 
@@ -24,7 +27,7 @@ def run():
 
         for _ in range(N):
             score1, score2 = map(int, input().split())
-            scores.append((score1, score2))
+            scores.append([score1, score2])
         
         print(solution(N, scores))
     

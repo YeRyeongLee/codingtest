@@ -1,6 +1,3 @@
-from http.client import PAYMENT_REQUIRED
-
-
 NUM_OF_BILLS = 6
 BILLS = [500, 100, 50, 10, 5, 1]
 PAY = 1000
@@ -20,11 +17,7 @@ def run():
     
     price = int(input())
 
-    # print(solution(price))
-
-    for n in range(1, 1000):
-        print(n, solution(n))
-
+    print(solution(price))
 
     return 0
 

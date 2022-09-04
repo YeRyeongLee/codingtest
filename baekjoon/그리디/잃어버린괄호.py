@@ -38,7 +38,7 @@ def solution(expression):
     return answer
 
 def run():
-    expression = "00009-00009"
+    expression = input()
 
     print(solution(expression))
 
