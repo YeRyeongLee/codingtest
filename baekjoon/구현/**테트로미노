@@ -1,0 +1,64 @@
+# 각 점에서 출발하여 4번 이동. 합계 구해서 최댓값 구함
+
+TETRO = [
+    [[1, 1, 1, 1]],
+    [[1, 1],[1, 1]],
+    [[1, 1, 1],[0, 1, 0]],
+    [[0, 1, 0],[1, 1, 1]],
+    [[1, 0],[1, 1],[1, 0]],
+    [[0, 1],[1, 1],[0, 1]],
+    [[1, 1, 1],[1, 0, 0]],
+    [[1, 0, 0],[1, 1, 1]],
+    [[1, 1, 1],[0, 0, 1]],
+    [[0, 0, 1],[1, 1, 1]],
+    [[1, 0], [1, 0], [1, 1]],
+    [[1, 1], [1, 0], [1, 0]],
+    [[1, 1], [0, 1], [0, 1]],
+    [[0, 1], [0, 1], [1, 1]],
+    [[1, 0], [1, 1], [0, 1]],
+    [[0, 1], [1, 1], [1, 0]],
+    [[0, 1, 1],[1, 1, 0]],
+    [[1, 1, 0],[0, 1, 1]],
+]
+
+
+
+def getsum(i, j, n, m, block, board):
+    sum = 0
+
+    for x in range(n):
+        for y in range(m):
+            sum += block[x][y] * board[i+x][j+y]
+    
+    return sum
+
+
+def solution(N, M, board):
+    answer = 0
+
+    maxval = 0
+
+    for block in TETRO:
+        n = len(block)
+        m = len(block[0])
+
+        for i in range(N-n+1):
+            for j in range(M-m+1):
+                maxval = max(maxval, getsum(i, j, n, m, block, board))
+
+    answer = maxval
+    
+    return answer
+
+
+def run():
+    N, M = map(int, input().split())
+    board = [list(map(int, input().split())) for _ in range(N)]
+
+    print(solution(N, M, board))
+
+    return 0
+
+
+if __name__ == "__main__":
+    run()
